@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    
+    </style>
+</head>
+<body>
+    <div id="app">
+     请输入类容    <input type="text" v-model="msg">
+     name : <input type="text" v-model="msg1">  
+     des: <input type="text" v-model="msg2">
+     price: <input type="text" v-model="msg3">
+
+     <button @click='addData'>点击我把input的内容的值放到数组里面去</button>
+        <ul>
+           <li v-for="(item,key,index) in obj">
+               {{item.name}}
+               {{item.des}}
+               {{item.price}}
+
+           </li>
+        </ul>
+    </div>  
+    <script>
+     let vm=new Vue({
+        el:'#app',
+        data:{
+            msg:"我是正常的双向数据绑定",
+            msg1:1,
+            msg2:2,
+            msg3:3,
+            obj:[{
+                // id:1,
+                name:"商鞅",
+                des:"历史第一人",
+                price:"22222222"
+             }],
+        },
+        methods:{
+          addData(){
+            var name=this.msg1
+            var des=this.msg2
+            var price=this.msg3
+            this.obj.push({name,des,price})
+          }
+        }
+     })
+    
+    </script>
+</body>
+</html>

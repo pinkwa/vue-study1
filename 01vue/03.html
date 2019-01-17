@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+     
+    
+    </style>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+         <ul>
+          <li v-for="(item,index) in list">
+                name:{{item}}        ----------索引：{{index}}
+          </li>
+
+         </ul>
+
+         <!-- es6写法 -->
+
+         <ul>
+          <li v-for="(item,key) of obj">
+
+                     {{key}}:{{item}}          ----------索引：{{key}}
+          </li>
+
+         </ul>
+         <ul>
+          <li v-for="(item,index) of str" >
+             name:{{item}}          ----------索引：{{index}}
+
+          </li>
+
+         </ul>
+         <ul>
+            <li v-for="content in num" >
+               {{content}}
+  
+            </li>
+  
+           </ul>
+    </div>
+    <script>
+     new Vue({
+         el:"#app",
+         data:{
+             list:["布登","嬴渠梁","嬴驷","嬴稷"],
+
+             obj:{
+                id:1,
+                name:"商鞅",
+                des:"历史第一人",
+                price:"22222222"
+             },
+             str:'建立了战时法制' ,
+             num:10 
+         }, 
+        
+     })
+    
+    
+    </script>
+</body>
+</html>

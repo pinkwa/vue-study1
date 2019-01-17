@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    
+    </style>
+</head>
+<body>
+    <div id="app">
+     请输入类容    <input type="text" v-model="msg">
+
+     <button @click='addData'>点击我把input的内容的值放到数组里面去</button>
+        <ul>
+            <li v-for="(item,index) of list">
+                {{item}}
+            </li>
+        </ul>
+    </div>  
+    <script>
+     let vm=new Vue({
+        el:'#app',
+        data:{
+            msg:"我是正常的双向数据绑定",
+            list:["布登","嬴渠梁","嬴驷","嬴稷"],
+            obj:{
+                id:1,
+                name:"商鞅",
+                des:"历史第一人",
+                price:"22222222"
+             },
+        },
+        methods:{
+          addData(){
+              this.list.push(this.msg)
+          }
+        }
+     })
+    
+    </script>
+</body>
+</html>
