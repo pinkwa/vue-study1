@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+         <button @click="link">浪起来</button>
+         <button @click="out">停下来</button>
+        <p>{{msg}}</p>
+
+        </div>
+    <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                 msg:"你是我的小啊小苹果",
+                 timeId:""
+                },
+                methods: {
+                    link(){
+                        clearInterval(this.timeId
+                        
+                        )
+                   this.timeId=setInterval(()=>{
+                    let start =this.msg.substring(0,1);
+                     let end=this.msg.substring(1)
+                     this.msg=end+start 
+                    },200)
+                    },
+                    out(){
+                clearInterval(this.timeId)
+                }
+                },
+             
+            })
+        </script>
+    </body>
+</html>
