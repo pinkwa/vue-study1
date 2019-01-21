@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue.js"></script>
+        <style>
+            .v-enter{
+                opacity: 0;
+                transform: translateX(500px)
+            }
+            .v-leave-to{
+                opacity: 0;
+                transform: translateY(150px)
+            }
+        .v-enter-active,
+        .v-leave-active{
+            transition: all 0.5s ease
+        }
+        
+        
+        </style>
+    </head>
+    <body>
+        <div id="app">
+              <input type="button" value="toggle" @click="flag=!flag">
+
+
+           <transition>
+            <h1 v-if="flag">{{msg}}</h1>
+           </transition>
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                   msg:"这是h1标签",
+                   flag:false    
+                }
+            })
+        </script>
+    </body>
+</html>

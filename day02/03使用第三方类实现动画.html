@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue.js"></script>
+    <link rel="stylesheet" href="./animate.css">
+</head>
+  <style>
+   /* .v-enter,
+   .v-leave-to{
+       opacity: 0;
+       transform: translateY(150px)
+   }
+   .v-enter-active,
+   .v-leave-active{
+       transition: all 0.5s ease
+   } */
+   
+  
+  
+  </style>
+<body>
+    <div id="app">
+        <!-- 这个加一个name也可以实现
+        下面两个是进入和离开的效果 -->
+        <!-- https://cn.vuejs.org/v2/guide/transitions.html -->
+        <input type="button" value="toggle" @click="flag=!flag">
+
+        <!-- <transition 
+        name="custom-classes-transition"
+        enter-active-class="animated bounce"
+        leave-active-class="animated bounceOut">
+         
+        <h1 v-if="flag">这是个个h1</h1>
+        </transition> -->
+       
+  <transition :duration="{ enter: 500, leave: 800 }"  
+  enter-active-class="animated bounce"
+  leave-active-class="animated bounceOut"> 
+        <h1 v-if="flag">这是个个h1</h1>
+  </transition>
+  <!-- :duration="{ enter: 500, leave: 800 } 进入和离开动画的时长 -->
+    <!-- 使用地址： https://cn.vuejs.org/v2/guide/transitions.html -->
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                flag: false
+            }
+        })
+    </script>
+</body>
+
+</html>

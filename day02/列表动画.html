@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue.js"></script>
+
+    <style>
+        li{
+            line-height: 35px;
+            border: 1px dashed #ccc;
+            padding-left: 5px;
+            margin: 5px;
+        }
+        li:hover{
+            background: hotpink;
+            transition: all 1s ease
+        }
+        .v-enter,
+        .v-leave-to{
+            opacity: 0;
+            transform: translateY(80px)
+        }
+        .v-enter-active,
+        .v-leave-to-active{
+            transition: all 1s ease
+        }
+        .v-move{
+            transition: all 1s ease
+        }
+        .v-leave-to-active{
+            position: absolute;
+        }
+        </style>
+</head>
+
+<body>
+    <div id="app">
+        <label for="">
+            ID <input type="text" model="id">
+        </label>
+        <label for="">
+            Name <input type="text" model="name">
+        </label>
+        <label for="">
+            <input type="button" value="添加" @click=add>
+        </label>
+        <ul>
+
+            <transition-group  tag="ul">
+                <li v-for="(item,i) in list" v-bind:key="item.id" @click=del(i)>
+                    {{ item.id }}------{{item.name}}
+                </li>
+             </transition-group>
+        </ul>
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                id:"",
+                name:"",
+                list: [
+                    { id: 1, name: "张三" },
+                    { id: 2, name: "李四" },
+                    { id: 3, name: "王五" }
+                ]
+            },
+            methods: {
+                add(){
+                    this.list.push({id:this.id,name:this.name})
+                },
+                del(i){
+                    this.list.splice(i,1)
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

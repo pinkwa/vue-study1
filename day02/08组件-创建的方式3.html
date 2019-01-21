@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+          <cm></cm>
+          <login></login>
+        </div>
+    <template id="tem">
+      <div>
+         <h1>这是一个h1</h1>
+          <p>这是一个p</p>
+        </div>
+    </template>
+
+   <template id="tem1">
+      <div>
+         <h1>这是一个私有的h1</h1>
+          <p>这是一个私有的p</p>
+        </div>
+    </template>
+        <script>
+
+            Vue.component("cm",{template:"#tem"})
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                },
+               components:{
+                login:{
+                 template:"#tem1"
+                }
+               }
+            })
+        </script>
+    </body>
+</html>
