@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue2.js"></script>
+    </head>
+    <body>
+        <div id="app">
+         <a href="" @click.prevent="componentId='login'">登入</a>
+         <a href="" @click.prevent="componentId='register'">注册</a>
+
+            <!-- 这个component相当于是个占位符 -->
+          <component :is="componentId"></component>
+        </div>
+
+        <template id="tem1">
+            <div>
+               <h3>这是注册页面</h3> 
+            </div>
+        </template>
+
+        <template id="tem2">
+                <div>
+                   <h3>这是登入页面</h3> 
+                </div>
+            </template>
+        <script>
+        Vue.component("login",{
+            template:"#tem1"
+        })
+        Vue.component("register",{
+            template:"#tem2"
+        })
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    componentId:"login"
+                }
+            })
+        </script>
+    </body>
+</html>

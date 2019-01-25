@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+              <mycom></mycom>
+        </div>
+        <script>
+            Vue.component("mycom",{
+                template:'<h1>这是h1中定义的数据---{{msg}}</h1>',
+                data:function(){
+                return  {msg:"这是data定义数据"}
+                }
+            })
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                  
+                }
+            })
+        </script>
+    </body>
+</html>

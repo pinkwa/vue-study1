@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js">
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <com1 v-bind:parentmsg="msg"></com1>
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: "这是父组件的数据"
+            },
+
+            components: {
+                com1: {
+                
+
+                    data() {
+                        return {
+                            title: "世界你好",
+                            montent: "确认过眼神",
+                            msgs:this.parentmsg
+                        }
+                    },
+                    template: "<h1 @click='change'>这是子组件的内容---{{msgs}}</h1>",
+                    props: ['parentmsg'],
+                    methods: {
+                     change(){
+                         this.msgs="被修改了"
+                     }
+                    },
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue2.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <com2 @fun="show"></com2>
+        </div>
+
+
+        <template id="tmp">
+            <div>
+             <h1>这是子组件</h1>  
+             <input type="button" @click="myclick" value="这是子组件点击它可以调用父组件里的方法并且可以在该方法里面转递子组件的data值"> 
+            </div>
+        </template>
+        <script>
+  
+            var com2={
+              template:"#tmp",
+              data(){
+                  return {sonmsg:{name:"大头儿子",age:6}}
+              },
+              methods: {
+                  myclick(){
+                      this.$emit('fun',this.sonmsg)
+                    //   这个函数是激活父组件的方法并且传值,这个this.sonmsg是实参
+                  }
+              },
+               
+            }
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                dataNull:"",
+                // 这个定义是即将接受子组件里面data的数据
+                },
+                methods: {
+                    show(data){
+                        // 这个传递的是形参
+                       console.log("调用了父组件的方法") 
+                       console.log(data)
+                    //    然后将子组件中的this.sonmsg用父组件中dataNull来储存
+                    this.dataNull=data;
+                    }
+                },
+                components:{
+                    com2
+                }
+            })
+        </script>
+    </body>
+</html>

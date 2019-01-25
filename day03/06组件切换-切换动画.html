@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>e</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue2.js"></script>
+        <style>
+       .v-enter,
+       .v-leave-to{
+           opacity: 0;
+           transform: translateX(150px)
+       }
+        
+    .v-enter-active,
+    .v-leave-to-active{
+        transition: all 1s ease
+    }
+        
+        
+        </style>
+    </head>
+    <body>
+        <div id="app">
+
+            <a href="" @click.prevent="componentId='login'">注册</a>
+            <a href="" @click.prevent="componentId='register'">登入</a>
+         <transition>
+                <component :is="componentId"></component>
+         </transition>
+        </div>
+
+
+        <template id="tpl1">
+            <div>
+                <h3>这是登入组件</h3>
+            </div>
+        </template>
+        <template id="tpl2">
+                <div>
+                    <h3>这是z注册组件</h3>
+                </div>
+            </template>
+        <script>
+            Vue.component("login",{
+                template:"#tpl1"
+            })
+            Vue.component("register",{
+                template:"#tpl2"
+            })
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    componentId:"login"
+                }
+            })
+        </script>
+    </body>
+</html>
