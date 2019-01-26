@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue-2.4.0.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <one ref="first"></one>
+            <two ref="last"></two>
+        </div>
+        <script>
+            Vue.component('one',
+               {template:"<h2>这是one里面的类容</h2>"}
+            )
+            Vue.component('two',
+              {
+                  data(){
+                      return {msg:"nihao1"}
+                  },
+                  template:"<h2>这是one里面的类容</h2>"
+              },
+            
+            )
+            var vm = new Vue({
+                el: '#app',
+                data: {
+
+                }
+            })
+        </script>
+    </body>
+</html>

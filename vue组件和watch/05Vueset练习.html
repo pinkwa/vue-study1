@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue-2.4.0.js"></script>
+    </head>
+    <body>
+        <div id="app">
+          <h1>点击这里往数组里面添加数据</h1>
+            <ul>
+                <li v-for="item in list">
+                    {{item}}
+                </li>
+                <button @click="add">点击添加类容</button>
+            </ul>
+
+            <ul>
+                <li v-for="(item,key,index) in obj" :key="index">
+                    {{item}}
+                </li>
+                <button @click="addObj">点击添加类容</button>
+            </ul>
+
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                   list:[
+                    1,2,3
+                   ],
+                obj:[
+                    {id:1,name:"zs"}
+                ]
+                },
+                methods: {
+                    add(){
+                        Vue.set(this.list,3,100)
+                    },
+                    addObj(){
+                       this.obj={
+                        id:1,name:"zs",
+                        id:2,name:"zs"  
+                       }
+                    }
+                },
+            })
+        </script>
+    </body>
+</html>

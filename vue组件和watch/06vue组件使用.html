@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+
+        </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue-2.4.0.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <h2></h2>
+            <table>
+            <tbody>
+                <tr is="row1"></tr>
+                <tr is="row1"></tr>
+                <tr is="row1"></tr>
+            </tbody>
+            </table>
+        </div>
+        <script>
+            Vue.component('row1',{
+                data(){
+                    return {
+                        msg:"xxxx"
+                    }
+                },
+                template:`<tr><td>我是表格中的数据----{{msg}}</td></tr>`
+            })
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    
+                }
+            })
+        </script>
+    </body>
+</html>

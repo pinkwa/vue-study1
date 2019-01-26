@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue-2.4.0.js"></script>
+    </head>
+    <body>
+        <div id="app">
+         <item></item>
+         <item1></item1>
+
+        </div>
+        <script>
+            Vue.component("item",{
+                template:"<h3>这是全局的组件</h3>"
+            })
+
+        var item1={
+            template:"<h3>这是私有组件</h3>"
+        }
+            var vm = new Vue({
+                el: '#app',
+                // template:"<h1>这是不用渲染的直接找到这个vue下面的模板</h1>",
+                data: {
+
+                },
+             components:{
+                 item1
+             }
+            })
+        </script>
+    </body>
+</html>

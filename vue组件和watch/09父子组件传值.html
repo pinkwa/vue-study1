@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue-2.4.0.js"></script>
+    </head>
+    <body>
+        <div id="app">
+          <item :content="msg"></item>
+          <item2 :nnum="num"></item2>
+        </div>
+        <script>
+            var item={
+                template:"<h3'>我是组件1---{{this.item5}}</h3>",
+                data(){
+                 return {item5:this.content}
+                },
+                methods: {
+                  
+                },
+                props:["content"]
+            }
+            var item2={
+                props:["nnum"],
+                template:"<h3>我是组件2---{{this.nnum}}</h3>"
+            }
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                msg:"你好",
+                num:'1'
+                },
+            
+                methods: {
+                   
+                },
+                components:{
+                    item,
+                    item2
+                }
+            })
+        </script>
+    </body>
+</html>

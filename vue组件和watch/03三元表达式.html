@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue-2.4.0.js"></script>
+        <style>
+        .actives{
+            background: red;
+        }
+        
+        </style>
+    </head>
+    <body>
+        <div id="app">
+         <p :class="aa" @click="change">{{msg}}</p>
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                  aa:"actives",
+                  msg:"你好"
+                },
+                methods: {
+                    change(){
+                        this.aa=this.aa=='actives'?'':'actives'
+                    }
+                },
+            })
+        </script>
+    </body>
+</html>
