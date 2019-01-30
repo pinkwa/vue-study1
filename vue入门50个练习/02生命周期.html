@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue2.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                template:"<p>{{this.msg}}</p>",
+                data: {
+                    msg:'你好',
+                    msg2:"我需要改变"
+                },
+                beforeCreate() {
+                    console.log("beforeCreate")
+                },
+                created() {
+                    // created这里只能加载出实例中的数据msg但是无法加载出页面结构
+                    console.log("created")
+                    console.log(this.$el)
+                    console.log(this.msg)
+                },
+                beforeMount() {
+                // beforeMount这里可以加载出界面结构#app也可以使用数据说明这面可以在渲染页面时候进行使用
+                  console.log(this.$el)
+                  console.log(this.msg)
+                  console.log(this.data)
+                },
+                mounted() {
+                    this.msg=this.msg2
+                    // 这里改变了data中的数据就会触发beforupdata和updata这面的函数
+                },
+                beforeDestroy() {
+                  console.log("beforeDestroy")
+                },
+                destroyed() {
+                    console.log("destroyed")
+                },
+                beforeUpdate() {
+                    console.log("befoupdata")
+                },
+                updated() {
+                    console.log("updata")
+                },
+            })
+        </script>
+    </body>
+</html>

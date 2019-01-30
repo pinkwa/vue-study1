@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue2.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="add">点击向对象里面添加数据</button>
+        <p v-for="(item,key,index) in obj">
+            z值{{item}}--- key{{key}} --- 索引{{index}}
+        </p>
+        <button @click="add1">点击向数组里面添加数据</button>
+        <p v-for="item1 in list">
+            {{item1}}
+        </p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                obj: {
+                    title: 'hello world',
+                    name: 'zhangsan',
+                    age: 17,
+                    sex: '男'
+                },
+                list:[1,2,3,4]
+            },
+            methods: {
+                add(){
+                  Vue.set(this.obj,'skin'+Math.random(),'red')
+                  //set第一个是目标元素，第二项是往哪里添加
+                },
+                add1(){
+                    vm.$set(this.list,0,"因为刚好遇见你")
+                }
+
+            },
+        })
+    </script>
+</body>
+
+</html>
