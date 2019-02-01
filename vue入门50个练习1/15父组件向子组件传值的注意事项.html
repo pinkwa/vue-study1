@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue2.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <h3>使用v-bind父组件向子组件转递的是num类型</h3>
+            <item :conter="0"></item>
+            <item :conter="1"></item>
+            <hr>
+            <h3>使用v-bind父组件向子组件转递的是string类型</h3>
+            <item conter="0"></item>
+            <item conter="1"></item>
+        </div>
+        <script>
+            Vue.component('item', {
+                template:"<h3>{{this.conter}}</h3>",
+                props:["conter"],
+                methods: {
+                
+                },
+                created() {
+                    console.log(typeof(this.conter))
+                },
+            })
+            var vm = new Vue({
+                el: '#app',
+                data: {
+ 
+                }
+            })
+        </script>
+    </body>
+</html>

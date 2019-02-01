@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue2.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <table>
+                <tbody>
+                    <h3>不加is导致tr在tbody上面</h3>
+                    <row></row>
+                    <row></row>
+                    <row></row>
+                </tbody>
+            </table>
+
+            <table>
+                    <tbody>
+                        <tr is="row"></tr>
+                        <tr is="row"></tr>
+                        <tr is="row"></tr>
+                     
+        
+                    </tbody>
+                </table>
+        </div>
+        <script>
+            Vue.component('row', 
+          {template:"<tr><td>这是一个组件</td></tr>"}
+            )
+            var vm = new Vue({
+                el: '#app',
+                data: {
+
+                }
+            })
+        </script>
+    </body>
+</html>

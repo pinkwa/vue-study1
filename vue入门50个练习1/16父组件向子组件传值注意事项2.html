@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue2.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <item :conter="0"></item>
+            <item :conter="1"></item>
+        </div>
+        <script>
+           Vue.component("item", {
+               template:"<h3 @click='change'>{{this.msg}}</h3>",
+               props:["conter"],
+               data(){
+               return  {
+                   msg:this.conter
+               }
+               },
+               methods: {
+                //    在vue里面父组件向子组件传递的数据是单向流 一般不允许子组件去改变父组件里面的数据
+                // 解决方案：可以将父组件传递过来的数据存储在子组件里面在进行更改
+                // vue2.js:616 [Vue warn]: Avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Instead, use a data or computed property based on the prop's value. Prop being mutated: "conter
+                change(){
+                    this.msg++
+                }
+               },
+           })
+            var vm = new Vue({
+                el: '#app',
+                data: {
+
+                }
+            })
+        </script>
+    </body>
+</html>

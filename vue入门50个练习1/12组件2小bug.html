@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue2.js"></script>
+    </head>
+    <body>
+        <div id="app">
+
+            <table>
+                    <tbody>
+                        <tr is="row"></tr>
+                        <tr is="row"></tr>
+                        <tr is="row"></tr>
+                     
+        
+                    </tbody>
+                </table>
+        </div>
+        <script>
+            Vue.component('row', 
+          {
+              template:"<tr><td>这是一个组件</td></tr>",
+              not available
+
+Expression
+​
+not available
+
+Expression
+​
+not available
+﻿
+// vue2.js:616 [Vue warn]: The "data" option should be a function that returns a per-instance value in component definitions.
+              data:{
+                  content:"这是错误1的写法"
+              }
+            }
+        
+            )
+            Vue.component('row', 
+          {
+              template:"<tr><td>{{msg}}</td></tr>",
+              data(){
+                 return {msg:"这是正确的写法"}
+              }
+            }
+        
+            )
+            var vm = new Vue({
+                el: '#app',
+                data: {
+
+                }
+            })
+        </script>
+    </body>
+</html>

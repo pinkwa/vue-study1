@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue2.js"></script>
+    </head>
+    <body>
+        <div id="app">
+          <p @click="getCont" ref="hell">假如你不在</p>
+        </div>
+        <script>
+            
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                  
+                },
+                methods: {
+                    getCont(){
+                      alert(this.$refs.hell.innerHTML)   
+                    }
+                },
+            })
+        </script>
+    </body>
+</html>

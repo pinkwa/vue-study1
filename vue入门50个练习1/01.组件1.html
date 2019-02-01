@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue2.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <p @click="show">{{msg}}</p>
+            <item></item>
+            <item2></item2>
+        </div>
+        <script>
+            Vue.component('item',{
+                template:'<h2>nihao</h2>'
+            })
+       var item2={
+           template:"<h2>你好世界</h2>"
+       }
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    msg:"直到遇见了"
+                },
+                methods: {
+                    show(){
+                        alert("可惜不是你")
+                    },
+                },
+                components:{
+                    item2
+                }
+            })
+        </script>
+    </body>
+</html>

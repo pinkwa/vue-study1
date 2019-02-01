@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue2.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <h2>如果是一个组件 $refs获得的是子组件的实例引用</h2>
+            <item ref="one" @fasong="jiesou"></item>
+            <item ref="two" @fasong="jiesou"></item>
+            <div>我现在求两组间的和:{{totall}}</div>
+
+        </div>
+        <script>
+            Vue.component('item', 
+             {
+                 data(){
+                     return  {num:0}
+                 },
+                 template:"<h3 @click='add'>{{num}}</h3>",
+                 methods: {
+                     add(){
+                         this.num++
+                         this.$emit("fasong")
+                     }
+                 },
+             },
+            
+            )
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                   totall:0
+                },
+                methods:{
+                    jiesou(){
+                      this.totall=this.$refs.one.num+this.$refs.two.num
+                    }
+                }
+
+            })
+        </script>
+    </body>
+</html>

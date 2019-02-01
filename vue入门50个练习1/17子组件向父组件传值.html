@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue2.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <item :conter="2" @fasong="addShow"></item>
+            <item :conter="3" @fasong="addShow"></item>
+            <div>{{total}}</div>
+        </div>
+        <script>
+            Vue.component("item", {
+                data(){
+                    return {
+                      num:this.conter
+                    }
+                },
+                template:"<h3 @click='add'>{{num}}</h3>",
+                props:["conter"],
+                methods:{
+                    add(){
+                        this.num=this.num+2
+                        this.$emit("fasong",2)
+                       
+                    }
+                }
+            
+            })
+            var vm = new Vue({
+                el: '#app',
+                data: {
+               total:5
+                },
+                methods: {
+                    addShow(step){
+                        this.total+=step
+                    }
+                },
+            })
+        </script>
+    </body>
+</html>
